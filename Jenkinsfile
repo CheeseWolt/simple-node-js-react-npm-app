@@ -16,6 +16,11 @@ pipeline {
                 sh './jenkins/scripts/test.sh'
             }
         }
+        stage('Docker') {
+            dockerfile {
+                filename 'Dockerfile'
+            }
+        }
         stage('Deliver') {
             steps {
                 sh './jenkins/scripts/deliver.sh'
